@@ -1,0 +1,9 @@
+# pg's essays, downloaded by scripts/fetch.py. not ours to commit.
+essays/
+# rendered pdfs and the intermediate html
+output/
+book.html
+cover.html
+node_modules/
+__pycache__/
+.DS_Store
