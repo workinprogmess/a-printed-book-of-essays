@@ -2,7 +2,7 @@
   "name": "a-printed-book-of-essays",
   "private": true,
   "version": "1.0.0",
-  "description": "paul graham's essays, printed and bound at home",
+  "description": "the best essays, printed and bound into small books, to read the way reading is meant to be. starting with paul graham.",
   "scripts": {
     "preview": "python3 -m http.server 4174"
   },

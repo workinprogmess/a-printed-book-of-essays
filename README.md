@@ -1,7 +1,11 @@
 # a printed book of essays
 
-paul graham's essays, printed and bound at home. seven small books. this is
-how i made mine, and everything you need to make yours.
+collecting the best essays on the open web, printing them, and binding them
+into small books. so you can read them at home, or outside, the way reading
+is meant to be. slowly. with a pencil. away from the screen.
+
+starting with paul graham's. seven volumes. this is how i made mine and
+everything you need to make yours, or to make your own.
 
 ![cover and title page](guide/cover.png)
 
