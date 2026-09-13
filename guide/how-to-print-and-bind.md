@@ -1,13 +1,14 @@
 # how to print and bind
 
-one volume = 27-48 sheets of paper (see the readme table) + 2 sheets of
+one volume = 27-48 sheets of paper (the table in `paul-graham/README.md`) + 2 sheets of
 cover stock + one evening. do the 2-sheet test first, every time. it
 saves the whole stack.
 
 ## what's on the table
 
-- `output/vol1-inside-odd.pdf` and `-even.pdf`
-- `output/vol1-cover-front.pdf`, `output/vol1-cover-back.pdf`
+- the volume's folder under `paul-graham/pdfs/`, say `1-on-work-thats-yours/`:
+  `print-odd.pdf`, `print-even.pdf` (or `print-duplex.pdf` if your printer
+  flips paper), `cover-front.pdf`, `cover-back.pdf`
 - a4 80gsm paper for the inside. i use a pastel green; any tinted or
   cream 80-100gsm works. plain white is fine too, it's just less of a book
 - a4 photo paper or card for the covers. i use 260gsm glossy inkjet photo
@@ -19,10 +20,10 @@ saves the whole stack.
 ## printing the inside: manual duplex
 
 this is written for a printer that doesn't flip paper by itself (mine is an
-epson l8050). two passes. if yours does duplex, print `vol1-inside.pdf`
+epson l8050). two passes. if yours does duplex, print `print-duplex.pdf`
 two-sided, long edge, and skip to the covers.
 
-1. open `vol1-inside-odd.pdf` in preview. file → print.
+1. open `print-odd.pdf` in preview. file → print.
    - paper size: a4
    - media type: plain paper
    - print quality: standard (not photo. inkjet dye on 80gsm at photo
@@ -33,7 +34,7 @@ two-sided, long edge, and skip to the covers.
 3. take those two sheets. flip the stack like turning a page in a book
    (over the long edge). the top of the page stays at the top. printed
    side is now down, sheet with page 1 is on top.
-4. load them in the rear feed. print pages 1-2 of `vol1-inside-even.pdf`
+4. load them in the rear feed. print pages 1-2 of `print-even.pdf`
    (book pages 2 and 4).
 5. check: page 2 should be on the back of page 1, same way up, page
    numbers at the outer bottom corners. if page 2 is upside down, next
@@ -48,12 +49,12 @@ two-sided, long edge, and skip to the covers.
 
 ## printing the cover
 
-1. `vol1-cover-front.pdf` → print on one sheet of the photo paper,
+1. `cover-front.pdf` → print on one sheet of the photo paper,
    glossy side up in the rear feed.
    - media type: premium glossy (or "photo paper glossy")
    - print quality: high / photo
    - borderless: on
-2. same for `vol1-cover-back.pdf`.
+2. same for `cover-back.pdf`.
 3. the back of photo paper is bare white and won't take ink. that's the
    inside of the cover. fine. (cardstock takes ink on both sides if you'd
    rather print the inside too.)

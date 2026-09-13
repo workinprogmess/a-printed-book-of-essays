@@ -1,9 +1,5 @@
-# pg's essays, downloaded by scripts/fetch.py. not ours to commit.
-essays/
-# rendered pdfs and the intermediate html
-output/
-book.html
-cover.html
+# intermediate html that tool/build.py writes
+*/.build/
 node_modules/
 __pycache__/
 .DS_Store

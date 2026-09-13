@@ -1,12 +1,9 @@
 {
-  "name": "pg-on-paper",
+  "name": "on-paper",
   "private": true,
   "version": "1.0.0",
-  "description": "paul graham's essays as small books you print and bind at home",
+  "description": "essays worth reading slowly, laid out as small books you print and bind at home. starting with paul graham.",
   "scripts": {
-    "fetch": "python3 scripts/fetch.py",
-    "build": "python3 scripts/build.py",
-    "pdf": "node scripts/make-pdf.mjs",
     "preview": "python3 -m http.server 4174"
   },
   "devDependencies": {
