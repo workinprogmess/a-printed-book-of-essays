@@ -121,8 +121,12 @@ def build(author: str, volume: int) -> Path:
 </article>
 """
     title = f"{author_name} {theme} · volume {roman}"
-    (out / "book.html").write_text(HEAD.format(title=title, cls="book-doc", styles="../../tool/styles.css") + body + TAIL, "utf-8")
-    (out / "book-ereader.html").write_text(HEAD.format(title=title, cls="book-doc ereader", styles="../../tool/styles.css,../../tool/ereader.css") + body + TAIL, "utf-8")
+    # paged.js resolves break/page rules against the content fragment before it is
+    # attached to the page, so the edition class has to sit on the article, not <body>.
+    (out / "book.html").write_text(HEAD.format(title=title, cls="book-doc", styles="../../tool/styles.css")
+                                   + body.replace('<article class="book">', '<article class="book print">', 1) + TAIL, "utf-8")
+    (out / "book-ereader.html").write_text(HEAD.format(title=title, cls="book-doc", styles="../../tool/styles.css,../../tool/ereader.css")
+                                           + body.replace('<article class="book">', '<article class="book ereader">', 1) + TAIL, "utf-8")
 
     back_list = "\n".join(
         f'<li><span class="c-no">{i+1:02d}</span>{esc(e["title"].lower())}</li>'

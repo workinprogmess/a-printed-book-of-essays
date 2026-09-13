@@ -4,10 +4,10 @@
 @page { size: A5; margin: 14mm 13mm 16mm 13mm; }
 @page :right { margin-left: 13mm; margin-right: 13mm; }
 @page :left  { margin-left: 13mm; margin-right: 13mm; }
-.ereader .book { font-size: 10.5pt; line-height: 1.5; }
-.ereader .book p + p { margin-top: 0.7em; }
+.book.ereader { font-size: 10.5pt; line-height: 1.5; }
+.book.ereader p + p { margin-top: 0.7em; }
 .ereader .title-page { padding-top: 48mm; --lk-w: 92mm; }
-.ereader .book .tp-foot { margin-top: 70mm; }
+.book.ereader .tp-foot { margin-top: 70mm; }
 .ereader .colophon { break-before: page; padding-top: 120mm; max-width: 100%; }
 .ereader .contents { break-before: page; padding-top: 14mm; }
 .ereader .contents h2 { font-size: 26pt; margin-bottom: 8mm; }
@@ -15,8 +15,8 @@
 .ereader .toc-date { display: none; }
 .ereader .toc a { grid-template-columns: 9mm 1fr 10mm; }
 .ereader .essay { break-before: page; }
-.ereader .essay-head { page: auto; padding-top: 6mm; break-after: avoid; }
+.ereader .essay-head { padding-top: 6mm; break-after: avoid; }
 .ereader .essay-no { margin-bottom: 5mm; }
-.ereader .essay-body { break-before: auto; margin-top: 12mm; }
+.ereader .essay-body { margin-top: 12mm; }
 .ereader .essay-title { font-size: 30pt; max-width: 100%; }
 .ereader .essay-meta { padding-top: 5mm; }

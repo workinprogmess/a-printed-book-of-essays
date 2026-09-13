@@ -151,10 +151,11 @@ html, body { margin: 0; padding: 0; background: #fff; }
 .toc a::after { content: target-counter(attr(href), page); font-size: 9pt; color: var(--ink-soft); font-variant-numeric: lining-nums; text-align: right; }
 
 /* ---------------------------------------------------------------- essays: title on the left page, text starts on the right */
-.essay { break-before: left; }
+.print .essay { break-before: left; }
 .essay-title { string-set: essay-title attr(data-title); }
-.essay-head { page: quiet; padding-top: 36mm; }
-.essay-body { break-before: right; }
+.print .essay-head { page: quiet; }
+.essay-head { padding-top: 36mm; }
+.print .essay-body { break-before: right; }
 .essay-no { font-size: 8.5pt; color: var(--ink-faint); font-variant-numeric: lining-nums; letter-spacing: 0.08em; margin: 0 0 12mm; }
 .essay-title {
   font-family: var(--display); font-weight: 400; font-size: 58pt; line-height: var(--display-line);
