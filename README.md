@@ -1,8 +1,9 @@
 # a printed book of essays
 
-collecting the best essays on the open web, printing them, and binding them
-into small books. so you can read them at home, or outside, the way reading
-is meant to be. slowly. with a pencil. away from the screen.
+handpicking essays i want to read, from people i want to read from, and
+printing and binding them into small books. so i can read them at home, or
+outside, the way reading is meant to be. slowly. with a pencil. away from
+the screen.
 
 starting with paul graham's. seven volumes. this is how i made mine and
 everything you need to make yours, or to make your own.
