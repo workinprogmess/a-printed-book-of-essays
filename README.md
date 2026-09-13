@@ -1,116 +1,98 @@
-# on paper
+# a printed book of essays
 
-essays worth reading slowly, laid out as small books you print and bind at
-home. starting with paul graham.
+paul graham's essays, printed and bound at home. seven small books. this is
+how i made mine, and everything you need to make yours.
 
 ![cover and title page](guide/cover.png)
 
 ## why
 
-some writing is better on paper. you read it on the floor, in the sun, on
-a train, with a pencil. you underline. you argue in the margin. you finish
-an essay and sit with it instead of clicking the next one. and a thing you
-printed, folded, punched, and sewed yourself is a different object from a
-pdf. you feel each word a little more because your hands made the page it
-sits on.
+there's too much screen. i moved from print to screen like everyone did and
+now everything is on it. i'm at a point where i'm choosing to go off it as
+much as i can (except when i must work). some essays i read on a screen and
+move on. some i want to sit with. breathe. spend time with. the screen isn't
+where i have that kind of attention. it's always pulling me somewhere else.
 
-this repo is that, for essays that live on the open web. pick a volume,
-print it two-sided, add a cover, sew four holes. an evening's work. the
-guide walks you through all of it, including the first time.
+and mira, who's two. she loves books already. i want a home where we don't
+only read them, we make them. this one is for me. hers are coming.
 
-## what's here
+i've never bound a book before. there's something in the doing of it, the
+printing and punching and sewing, that i want to feel. and then sit in a
+corner, or the balcony, and read the thing i made. pencil in hand. looking
+up at the clouds now and then. or at the pile of unfinished books, which
+only grows.
 
-- **[paul graham](paul-graham/)** — 86 of his essays in seven volumes, by
-  theme: on work that's yours, on kids and learning, on writing, on making
-  things, on startups, on money and investors, on society. [why they're
-  split this way, and what each one holds](paul-graham/README.md).
+## paul graham
 
-more authors as they come. the structure is one folder per author; see
-[adding an author](#adding-an-author).
+he just happened to be first. there's so much of his i want to read, enough
+for volumes, and it isn't in a book already. and i want to understand how he
+writes so simply about things people complicate. startups, wealth, doing
+great work. you can't write that simply unless you think that clearly.
+that's what i'm trying to learn.
 
-## read it, three ways
+86 essays, seven volumes, sorted by what they're about. [why these, and
+what's in each](paul-graham/README.md).
 
-every volume folder under `paul-graham/pdfs/` has:
+| | | essays | a4 sheets |
+|----|----|----|----|
+| one | [on work that's yours](paul-graham/pdfs/1-on-work-thats-yours/) | 10 | 38 |
+| two | [on kids and learning](paul-graham/pdfs/2-on-kids-and-learning/) | 14 | 34 |
+| three | [on writing](paul-graham/pdfs/3-on-writing/) | 12 | 27 |
+| four | [on making things](paul-graham/pdfs/4-on-making-things/) | 12 | 39 |
+| five | [on startups](paul-graham/pdfs/5-on-startups/) | 13 | 43 |
+| six | [on money and investors](paul-graham/pdfs/6-on-money-and-investors/) | 12 | 43 |
+| seven | [on society](paul-graham/pdfs/7-on-society/) | 13 | 48 |
 
-| file | what for |
-|----|----|
-| `read.pdf` | the whole book on a screen, cover to cover, a4 |
-| `ereader.pdf` | a5, one page at a time, no spreads. for a kindle, remarkable, or tablet |
-| `print-odd.pdf` + `print-even.pdf` | the two passes for a printer that doesn't flip paper |
-| `print-duplex.pdf` | the same pages in one file, for a printer that does |
-| `cover-front.pdf`, `cover-back.pdf` | one sheet of card or photo paper each |
+## what you can do here
 
-so:
+**look.** open a volume folder. `read.pdf` is the whole book on a screen.
+`ereader.pdf` is a5, for a kindle or a tablet.
 
-1. **just read.** download `read.pdf` or `ereader.pdf`. done.
-2. **print and bind.** download the print files and the covers, then follow
-   [the guide](guide/how-to-print-and-bind.md). it covers the two-sheet
-   duplex test, the paper, the holes, and the sewing, step by step.
-3. **make it yours.** change which essays, the order, the cover colour, the
-   type. rebuild. see [changing things](#changing-things).
+**print one.** `print-odd.pdf` and `print-even.pdf` are the two passes for a
+printer that doesn't flip paper (mine doesn't). `print-duplex.pdf` if yours
+does. `cover-front.pdf` and `cover-back.pdf` on card or photo paper. then
+[the guide](guide/how-to-print-and-bind.md), which walks through the first
+time: the two-sheet test, the holes, the sewing. one evening.
 
-## paper
-
-what i use: a4 80gsm pastel green for the inside, 260gsm glossy inkjet
-photo paper for the covers, an epson l8050 that doesn't duplex. any tinted
-or cream 80-100gsm paper works for the inside. plain white is fine too, it's
-just less of a book. 250gsm cardstock works for covers and takes ink on both
-sides. one 100-sheet pack does two volumes.
-
-## changing things
-
-you need python 3, node, google chrome, ghostscript, and poppler.
+**make your own.** which essays, what order, how many volumes:
+`paul-graham/volumes.py`. cover colour, margins, type: the top of
+`tool/styles.css`. then:
 
 ```sh
-brew install ghostscript poppler          # mac
-sudo apt install ghostscript poppler-utils   # debian / ubuntu
-npm install
+npm install                              # once. also needs chrome, ghostscript, poppler
+python3 tool/fetch.py paul-graham 3      # only if you added an essay the repo doesn't have
+python3 tool/build.py paul-graham 3
+node tool/make-pdf.mjs paul-graham 3     # → paul-graham/pdfs/3-on-writing/
 ```
 
-then, from the repo root:
+or clone it and tell your agent what you want. [AGENTS.md](AGENTS.md)
+explains the repo to it.
 
-```sh
-python3 tool/fetch.py paul-graham 3     # downloads any essay you added to the volume
-python3 tool/build.py paul-graham 3     # lays out volume 3
-node tool/make-pdf.mjs paul-graham 3    # renders all seven pdfs into paul-graham/pdfs/3-on-writing/
-```
+## paper and ink
 
-- **which essays, what order, how many volumes**: `paul-graham/volumes.py`. slugs are the file names on his site.
-- **capitals**: everything is lowercase, his prose included. `LOWERCASE = False` in `volumes.py` keeps his.
-- **the cover colour**: `--cover` at the top of `tool/styles.css`.
-- **margins and type size**: the same place. the binding side gets 32mm because stab stitching eats it and the book never opens flat. the outer side gets 50mm for a pencil.
-- **fonts**: charter, bodoni 72, and helvetica neue, which ship with macos. on linux or windows, [guide/fonts.md](guide/fonts.md) lists free fonts that sit close.
+a4 80gsm for the inside, i use a pale green. 260gsm glossy photo paper for
+the covers. an epson l8050, which doesn't duplex. any tinted 80-100gsm
+works inside, and 250gsm card works for covers. a 100-sheet pack is two
+volumes.
 
-or don't run anything yourself. clone the repo and tell your agent (claude
-code, codex, whichever) what you want. [AGENTS.md](AGENTS.md) tells it how
-this repo works.
+the fonts are charter, bodoni 72, and helvetica neue, which come with a
+mac. [guide/fonts.md](guide/fonts.md) has free ones that sit close if
+you're not on one.
 
-## adding an author
+## other authors
 
-one folder, three things in it:
+one folder per author: `volumes.py`, `parse.py` for that site's html, a
+readme. the engine, the covers, and the guide are shared. pg is first. not
+last.
 
-- `volumes.py` — `AUTHOR` (name, site, url pattern) and `VOLUMES`
-- `parse.py` — turns one saved page from that site into clean paragraphs. `paul-graham/parse.py` is the model
-- `README.md` — why the volumes are split the way they are
+## the essays are theirs
 
-then `fetch`, `build`, `make-pdf` with the folder name. the layout, the cover, and the guide are shared.
+paul graham's are free at [paulgraham.com](https://www.paulgraham.com/articles.html).
+they're here so you can print them for yourself. read them, bind them, give
+one to a friend. don't sell them. the tool and the layout are mit,
+see [LICENSE](LICENSE).
 
-## how it's laid out
+---
 
-- ink only inside. the paper is the colour.
-- each essay opens as a spread: title alone on the left page, text from the right.
-- footnotes stay at the end of each essay, where the author put them.
-- every page carries the author on the left and the essay title on the right, small.
-- charter at 10pt on a 128mm measure, about 72 characters a line. it was drawn for cheap paper and low-resolution printers, which is what this is.
-- the cover is a deep green, the author in bodoni over the theme in a light sans, both the same width.
-
-## on the essays
-
-they're their authors'. paul graham's are free to read at
-[paulgraham.com](https://www.paulgraham.com/articles.html) and they're here
-so you can print them for yourself. read them, bind them, give a copy to a
-friend. don't sell them.
-
-## licence
-
-the tool, the layout, and the guide are mit. see [LICENSE](LICENSE).
+just pay attention to the breath. and every time a thought arises, notice
+it, and return to the breath.

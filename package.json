@@ -1,8 +1,8 @@
 {
-  "name": "on-paper",
+  "name": "a-printed-book-of-essays",
   "private": true,
   "version": "1.0.0",
-  "description": "essays worth reading slowly, laid out as small books you print and bind at home. starting with paul graham.",
+  "description": "paul graham's essays, printed and bound at home",
   "scripts": {
     "preview": "python3 -m http.server 4174"
   },

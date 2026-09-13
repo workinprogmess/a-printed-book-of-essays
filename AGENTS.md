@@ -1,6 +1,6 @@
 # for agents
 
-you're in `on-paper`: essays from the open web laid out as printable,
+you're in `a-printed-book-of-essays`: essays from the open web laid out as printable,
 bindable a4 books, one folder per author. a person will usually ask you one
 of five things. here is how each one goes.
 

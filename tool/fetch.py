@@ -33,7 +33,7 @@ wanted = [s for n in (nums or VOLUMES) for s in VOLUMES[n]["essays"]]
 
 def download(url: str) -> bytes | None:
     """urllib first; curl as a fallback for python installs without ssl certs."""
-    req = urllib.request.Request(url, headers={"User-Agent": "on-paper (personal print edition)"})
+    req = urllib.request.Request(url, headers={"User-Agent": "a-printed-book-of-essays (personal print edition)"})
     try:
         return urllib.request.urlopen(req, timeout=30).read()
     except Exception:  # noqa: BLE001

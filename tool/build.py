@@ -108,7 +108,7 @@ def build(author: str, volume: int) -> Path:
 
 <section class="colophon">
   <p>{len(essays)} essays, {total_words:,} words. all of them are at {site}, free, as they should be. this is one reader's copy, printed at home to be read away from a screen, with a pencil.</p>
-  <p>made with on-paper. github.com/workinprogmess/on-paper</p>
+  <p>a printed book of essays<br>github.com/workinprogmess/a-printed-book-of-essays</p>
 </section>
 
 <section class="contents">
@@ -138,7 +138,7 @@ def build(author: str, volume: int) -> Path:
     <div><h2 class="lk-theme" data-fit="156">{esc(theme)}</h2></div>
     <p class="lk-volume">essays, volume {roman}</p>
   </div>
-  <p class="cv-foot"><span>{PRINTED}</span><span>on-paper</span></p>
+  <p class="cv-foot"><span>{PRINTED}</span><span>a printed book of essays</span></p>
 </section>
 <section class="cover back">
   <ol class="cv-list">

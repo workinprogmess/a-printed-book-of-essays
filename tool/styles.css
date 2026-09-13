@@ -130,7 +130,7 @@ html, body { margin: 0; padding: 0; background: #fff; }
   padding-top: 178mm;
   font-size: 9pt; line-height: 1.5; color: var(--ink-soft); max-width: 96mm;
 }
-.colophon p { margin: 0; }
+.colophon p { margin: 0; hyphens: none; -webkit-hyphens: none; }
 .colophon p + p { margin-top: 0.8em; }
 .colophon .wip { font-family: var(--display); font-size: 13pt; color: var(--ink); margin-top: 6mm; letter-spacing: var(--display-tracking); }
 
