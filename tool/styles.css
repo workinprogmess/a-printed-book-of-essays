@@ -175,7 +175,7 @@ html, body { margin: 0; padding: 0; background: #fff; }
   color: #eee9da;
   background: var(--cover);
   font-family: var(--text);
-  padding: 22mm 20mm 18mm 24mm;
+  padding: 22mm 20mm 26mm 24mm;   /* 26mm at the foot: inkjets lose registration in the last ~20mm of a borderless sheet */
   display: flex; flex-direction: column;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
   break-after: page;

@@ -55,7 +55,8 @@ what's in each](paul-graham/README.md).
 
 **print one.** `print-odd.pdf` and `print-even.pdf` are the two passes for a
 printer that doesn't flip paper (mine doesn't). `print-duplex.pdf` if yours
-does. `cover-front.pdf` and `cover-back.pdf` on card or photo paper. then
+does. `cover-front.pdf` and `cover-back.pdf` on card or photo paper,
+`cover-inside.pdf` for their backs if you want them green too. then
 [the guide](guide/how-to-print-and-bind.md), which walks through the first
 time: the two-sheet test, the holes, the sewing. one evening.
 

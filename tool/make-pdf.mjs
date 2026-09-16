@@ -10,6 +10,7 @@
 //   print-duplex.pdf   the inside pages in one file, for a printer that does
 //   cover-front.pdf    one sheet of card or photo paper
 //   cover-back.pdf     one sheet
+//   cover-inside.pdf   a plain sheet of the cover colour, for the backs of the covers
 import { chromium } from "playwright-core";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
@@ -110,6 +111,13 @@ try {
   await render(browser, "cover.html", cover);
   await gs(cover, path.join(outputDir, `cover-front.pdf`), "1");
   await gs(cover, path.join(outputDir, `cover-back.pdf`), "2");
+  // a plain sheet of the cover colour, for the inside of each cover if the
+  // stock takes ink on both sides.
+  const inside_ = path.join(outputDir, `cover-inside.pdf`);
+  const green = (await fs.readFile(path.join(rootDir, "tool/styles.css"), "utf8")).match(/--cover:\s*(#[0-9a-f]{6})/i)?.[1] ?? "#2f4a3b";
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(green.slice(i, i + 2), 16) / 255);
+  await execFileAsync("gs", ["-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=pdfwrite", `-sOutputFile=${inside_}`,
+    "-c", `<</PageSize [595.28 841.89]>> setpagedevice ${r} ${g} ${b} setrgbcolor 0 0 595.28 841.89 rectfill showpage`]);
   console.log(`cover: front + back, 2 sheets of photo paper`);
 
   // preview = the physical object: front cover, its blank inside, the pages, the blank inside of the back cover, back cover.

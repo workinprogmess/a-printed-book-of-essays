@@ -20,45 +20,82 @@ saves the whole stack.
 ## printing the inside: manual duplex
 
 this is written for a printer that doesn't flip paper by itself (mine is an
-epson l8050). two passes. if yours does duplex, print `print-duplex.pdf`
-two-sided, long edge, and skip to the covers.
+epson l8050). two passes, one flip, both passes in reverse order. if yours
+does duplex, print `print-duplex.pdf` two-sided, long edge, and skip to the
+covers.
 
-1. open `print-odd.pdf` in preview. file → print.
-   - paper size: a4
-   - media type: plain paper
-   - print quality: standard (not photo. inkjet dye on 80gsm at photo
-     quality soaks and shows through)
-   - scale: 100%, no "fit to page"
-2. **test first.** print pages 1-2 of the odd file only (that's book
-   pages 1 and 3). two sheets come out face up, the later one on top.
-3. take those two sheets. flip the stack like turning a page in a book
-   (over the long edge). the top of the page stays at the top. printed
-   side is now down, sheet with page 1 is on top.
-4. load them in the rear feed. print pages 1-2 of `print-even.pdf`
-   (book pages 2 and 4).
-5. check: page 2 should be on the back of page 1, same way up, page
-   numbers at the outer bottom corners. if page 2 is upside down, next
-   time flip over the short edge instead. if page 2 landed on the back
-   of page 3, next time reverse the order (preview: paper handling →
-   reverse page order) on the even pass.
-6. once the test is right, print all of odd. wait for the stack to dry
-   ten minutes. flip the whole stack the way that worked. print all of
-   even. don't top up paper mid-pass.
-7. let it sit half an hour before binding. dye ink on uncoated paper
-   smudges when it's fresh.
+settings for both passes: a4, plain paper, standard quality (not photo:
+inkjet dye on 80gsm at photo quality soaks and shows through), 100%, no
+"fit to page".
+
+the logic, so you can reason about it when something goes sideways: the
+printer stacks sheets face-up with the last one on top, and it feeds from
+the top of whatever you load. so print the odd pass in reverse and page 1
+ends up on top of the pile. flip the whole pile once and page 1 is at the
+bottom, the last sheet on top. so the even pass runs in reverse as well:
+the highest even page prints first, onto the back of the highest odd page,
+and page 2 prints last, onto the back of page 1. when it finishes, the book
+is lying face-down on the tray in order.
+
+1. **test with one sheet first.** print page 3 of `print-odd.pdf` (book
+   page 5, the first numbered page). flip it as in step 3, feed it, print
+   page 3 of `print-even.pdf` (book page 6). page 6 should be on the back
+   of page 5, upright, "6" at the bottom left. if it's upside down, your
+   printer wants a short-edge flip.
+2. **odd pass, reversed.**
+
+   ```sh
+   lp -o media=A4 -o outputorder=reverse -o fit-to-page=false print-odd.pdf
+   ```
+
+   (print dialog: paper handling → reverse page order.) let it finish
+   completely. page 1 is on top. the blank sheets that come out are the
+   right-hand pages before each essay opener; they belong. count the
+   stack: it must equal the page count of `print-odd.pdf`.
+3. **the flip.** pick up the whole pile. hold it in front of you, page 1
+   facing you, upright. turn it over the way you turn a page in a book,
+   left edge swinging right. you now see the blank back of the last sheet;
+   the top of the page is still up. don't rotate it, don't square or fan
+   it. lower it into the rear feed, top edge down into the slot, the side
+   facing you still facing you.
+4. **even pass, reversed too.**
+
+   ```sh
+   lp -o media=A4 -o outputorder=reverse -o fit-to-page=false print-even.pdf
+   ```
+
+   if you want one more check before committing 40 sheets, print only the
+   last page of `print-even.pdf` first; it should land on the back of the
+   last odd page.
+5. **if the printer stalls mid-pass** (the l8050 does, with a full tray):
+   don't reload or cancel from the printer. note the number on the last
+   sheet that came out, cancel the job on the computer, and resend from
+   the next page onward, still reversed. the pile stays whole.
+6. wait ten minutes before handling, half an hour before binding. dye
+   ink on uncoated paper smudges when it's fresh.
 
 ## printing the cover
 
-1. `cover-front.pdf` → print on one sheet of the photo paper,
-   glossy side up in the rear feed.
+two sheets of photo paper or card, one for the front and one for the back.
+their unprinted sides face the first and last pages of the book.
+
+if your stock takes ink on both sides (photo paper's matte back does, a
+little duller), print the insides green too: `cover-inside.pdf` is a plain
+sheet of the cover colour. do the inside first, plain paper mode, standard
+quality, borderless; dry it ten minutes; then the outside. that way the
+glossy face is the last thing to touch the rollers.
+
+1. `cover-front.pdf` → one sheet, glossy side up in the rear feed.
    - media type: premium glossy (or "photo paper glossy")
    - print quality: high / photo
    - borderless: on
 2. same for `cover-back.pdf`.
-3. the back of photo paper is bare white and won't take ink. that's the
-   inside of the cover. fine. (cardstock takes ink on both sides if you'd
-   rather print the inside too.)
-4. dry an hour flat before touching the printed side.
+3. dry an hour flat before touching the printed side.
+
+the last 20mm or so of a borderless sheet prints a little soft on most
+inkjets, because the sheet is leaving the rollers. the layout keeps text
+above that line. if your printer is worse there, raise the cover padding in
+`tool/styles.css`.
 
 ## the stack
 

@@ -9,7 +9,7 @@ of five things. here is how each one goes.
 nothing to build. the pdfs are committed.
 
 - `paul-graham/pdfs/3-on-writing/print-odd.pdf` and `print-even.pdf` for a printer that doesn't duplex, or `print-duplex.pdf` for one that does
-- `cover-front.pdf` and `cover-back.pdf` on card or photo paper
+- `cover-front.pdf` and `cover-back.pdf` on card or photo paper; `cover-inside.pdf` is a plain sheet of the cover colour for their backs
 - `read.pdf` for a screen, `ereader.pdf` for a kindle or tablet
 
 point them at `guide/how-to-print-and-bind.md`. if they're about to print,
