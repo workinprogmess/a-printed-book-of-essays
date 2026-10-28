@@ -98,11 +98,11 @@ def build(author: str, volume: int) -> Path:
 <article class="book">
 
 <section class="title-page">
-  <div class="lockup">
-    <div><h1 class="lk-author" data-fit="128">{esc(author_name)}</h1></div>
-    <div><h2 class="lk-theme" data-fit="128">{esc(theme)}</h2></div>
-    <p class="lk-volume">essays, volume {roman}</p>
-  </div>
+  <p class="tp-author">{esc(author_name)}</p>
+  <hr>
+  <h1 class="tp-title">{esc(theme)}</h1>
+  <hr>
+  <p class="tp-volume">essays, volume {roman}</p>
   <p class="tp-foot">printed at home, {PRINTED}</p>
 </section>
 

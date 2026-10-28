@@ -110,21 +110,12 @@ html, body { margin: 0; padding: 0; background: #fff; }
 .book p.thanks { font-size: 0.9em; color: var(--ink-soft); margin-top: 1.4em; }
 
 /* ---------------------------------------------------------------- front matter */
-.title-page { page: quiet; break-after: page; padding-top: 70mm; --lk-w: 128mm; }
-.book .tp-foot { margin-top: 110mm; font-size: 9pt; color: var(--ink-faint); text-align: center; }
-
-/* the lockup: author in bodoni, theme in helvetica neue, both fitted to the same
-   width (see render.js), centred. spacing scales with the lockup width --lk-w. */
-.lockup { text-align: center; }
-.lockup > div { line-height: 0; }
-.lk-author, .lk-theme {
-  display: inline-block; white-space: nowrap; margin: 0;
-  font-family: var(--display); font-weight: 400; line-height: 1;
-  letter-spacing: var(--display-tracking);
-}
-.lk-theme { font-family: "helvetica neue", "inter", "helvetica", "arial", sans-serif; font-weight: 300; letter-spacing: -0.02em; font-style: normal; }
-.lockup > div + div { padding-top: 7mm; }
-.lk-volume, .book .lk-volume { font-family: var(--text); font-size: 10.5pt; color: var(--ink-soft); margin: 12mm 0 0; letter-spacing: 0.02em; }
+.title-page { page: quiet; break-after: page; padding-top: 62mm; text-align: center; }
+.book .tp-author { font-family: "helvetica neue", "inter", "helvetica", "arial", sans-serif; font-weight: 300; font-size: 24pt; letter-spacing: 0.02em; margin: 0; line-height: 1; color: var(--ink); }
+.title-page hr { border: 0; border-top: 0.4mm solid var(--ink); width: 36mm; margin: 9mm auto; }
+.book .tp-title { font-family: var(--display); font-weight: 400; font-size: 40pt; line-height: 0.98; margin: 0; letter-spacing: var(--display-tracking); hyphens: none; }
+.book .tp-volume { font-family: var(--text); font-size: 10.5pt; color: var(--ink-soft); margin: 0; }
+.book .tp-foot { margin-top: 120mm; font-size: 9pt; color: var(--ink-faint); text-align: center; }
 
 .colophon {
   page: quiet; break-before: left; break-after: page;
