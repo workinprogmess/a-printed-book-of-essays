@@ -115,7 +115,7 @@ html, body { margin: 0; padding: 0; background: #fff; }
 .title-page hr { border: 0; border-top: 0.4mm solid var(--ink); width: 36mm; margin: 9mm auto; }
 .book .tp-title { font-family: var(--display); font-weight: 400; font-size: 40pt; line-height: 0.98; margin: 0; letter-spacing: var(--display-tracking); hyphens: none; }
 .book .tp-volume { font-family: var(--text); font-size: 10.5pt; color: var(--ink-soft); margin: 0; }
-.book .tp-foot { margin-top: 120mm; font-size: 9pt; color: var(--ink-faint); text-align: center; }
+.book .tp-foot { margin-top: 96mm; font-size: 9pt; color: var(--ink-faint); text-align: center; }
 
 .colophon {
   page: quiet; break-before: left; break-after: page;
