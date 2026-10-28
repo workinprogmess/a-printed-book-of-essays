@@ -140,12 +140,12 @@ def build(author: str, volume: int) -> Path:
   <p class="cv-volume">essays, volume {roman}</p>
   <p class="cv-foot"><span>{PRINTED}</span><span>a printed book of essays</span></p>
 </div></section>
-<section class="cover back">
+<section class="cover back"><div class="fr">
   <ol class="cv-list">
 {back_list}
   </ol>
   <p class="cv-back-foot">{len(essays)} essays · {total_words:,} words · {site}</p>
-</section>
+</div></section>
 """ + TAIL
     (out / "cover.html").write_text(cover, "utf-8")
     (out / "name.txt").write_text(f"{volume}-{slugify(theme)}", "utf-8")
