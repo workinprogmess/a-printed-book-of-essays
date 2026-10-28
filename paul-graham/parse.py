@@ -23,6 +23,35 @@ def lower_text(fragment: str) -> str:
     return re.sub(r">([^<]+)<", lambda m: ">" + m.group(1).lower() + "<", f">{fragment}<")[1:-1]
 
 
+def balance_inline(block: str) -> str:
+    """close any <i>/<b> left open inside one block; drop closes with no open."""
+    for tag in ("i", "b"):
+        depth = 0
+        out = []
+        for piece in re.split(rf"(</?{tag}>)", block):
+            if piece == f"<{tag}>":
+                if depth == 0:
+                    out.append(piece)
+                depth = 1
+            elif piece == f"</{tag}>":
+                if depth == 1:
+                    out.append(piece)
+                depth = 0
+            else:
+                out.append(piece)
+        if depth == 1:
+            # close before a trailing </p> so the paragraph stays well-formed
+            joined = "".join(out)
+            if joined.endswith("</p>"):
+                joined = joined[:-4] + f"</{tag}></p>"
+            else:
+                joined += f"</{tag}>"
+            block = joined
+        else:
+            block = "".join(out)
+    return block
+
+
 def parse_essay(path: Path, lowercase: bool = True) -> dict:
     """turn one saved paulgraham.com page into {title, date, blocks, words}."""
     slug = path.stem
@@ -94,6 +123,12 @@ def parse_essay(path: Path, lowercase: bool = True) -> dict:
     for i, b in enumerate(blocks):
         if re.match(r"<p><b>Thanks</b>|<p>Thanks to ", b):
             blocks[i] = b.replace("<p>", '<p class="thanks">', 1)
+
+    # pg's pages occasionally leave an <i> or <b> unclosed (taste for makers,
+    # last footnote) or close one twice (good writing, thanks line). browsers
+    # forgive that at the paragraph end; paged.js doesn't, and the italic
+    # runs to the end of the book. balance every block on its own.
+    blocks = [balance_inline(b) for b in blocks]
 
     text = re.sub(r"<[^>]+>", " ", " ".join(blocks))
     words = len(html.unescape(text).split())
