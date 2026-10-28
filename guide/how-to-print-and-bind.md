@@ -74,6 +74,22 @@ is lying face-down on the tray in order.
 6. wait ten minutes before handling, half an hour before binding. dye
    ink on uncoated paper smudges when it's fresh.
 
+## if the mac says "looking for printer"
+
+the l8050 sometimes stops announcing itself on the network after a sleep.
+the queue the mac set up finds it by name, so it waits forever. the printer
+is still there at its address. add a second queue that talks to the
+address, same driver (replace the address with yours; the printer's
+network screen shows it):
+
+```sh
+cp /etc/cups/ppd/<your-queue>.ppd /tmp/l8050.ppd
+lpadmin -p l8050_ip -E -v socket://192.168.68.110:9100 -P /tmp/l8050.ppd
+lp -d l8050_ip ... (same options as above)
+```
+
+a restart of the printer sometimes fixes it too. sometimes not.
+
 ## printing the cover
 
 two sheets of photo paper or card, one for the front and one for the back.
