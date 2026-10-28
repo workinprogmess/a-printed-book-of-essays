@@ -11,6 +11,7 @@
   --gutter: 32mm;   /* binding side. stab stitching eats ~15mm and the book won't open flat */
   --outer: 50mm;    /* the pencil margin */
   --cover: #2f4a3b; /* the cover colour. change it. */
+  --cream: #eee9da; /* the ink on the cover */
   --body-size: 10pt;
   --body-leading: 1.52;
 }
@@ -166,25 +167,32 @@ html, body { margin: 0; padding: 0; background: #fff; }
 .essay-meta { font-size: 8.5pt; line-height: 1.5; color: var(--ink-faint); margin: 0; padding-top: 10mm; }
 
 /* ---------------------------------------------------------------- cover (separate doc) */
+/* a ruled frame, nothing else. the author in a light sans, the theme in bodoni between two
+   short rules. chosen 26.10.29 over tri-bands, labels and tone-on-tone passages: the quietest
+   one aged best. print-safe: frame 0.6mm and 22mm in (clear of the soft zone at the foot of a
+   borderless inkjet sheet), rules 0.5mm, author at 32pt (stroke ~0.7mm), title at 48pt where
+   bodoni's hairlines survive being reversed out of the green. */
 .cover-doc { background: #fff; }
 @page cover { size: A4; margin: 0; }
 .cover {
   page: cover;
   width: 210mm; height: 297mm;
   position: relative;
-  color: #eee9da;
+  color: var(--cream);
   background: var(--cover);
   font-family: var(--text);
-  padding: 22mm 20mm 26mm 24mm;   /* 26mm at the foot: inkjets lose registration in the last ~20mm of a borderless sheet */
-  display: flex; flex-direction: column;
+  padding: 22mm;
   -webkit-print-color-adjust: exact; print-color-adjust: exact;
   break-after: page;
 }
 .cover.back { break-after: auto; }
-.cover { --lk-w: 156mm; }
-.cover .lockup { margin-top: 62mm; }
-.cover .lk-volume { color: inherit; opacity: 0.8; font-size: 11pt; }
-.cv-foot { margin-top: auto; display: flex; justify-content: space-between; font-size: 9.5pt; opacity: 0.75; }
+.cover .fr { border: 0.6mm solid var(--cream); height: 100%; padding: 40mm 14mm 0; text-align: center; position: relative; }
+.cv-author { font-family: "helvetica neue", "inter", "helvetica", "arial", sans-serif; font-weight: 300; font-size: 32pt; letter-spacing: 0.02em; margin: 0; line-height: 1; }
+.cover .fr hr { border: 0; border-top: 0.5mm solid var(--cream); width: 40mm; margin: 10mm auto; }
+.cv-title { font-family: var(--display); font-weight: 400; font-size: 48pt; line-height: 0.98; margin: 0; letter-spacing: var(--display-tracking); hyphens: none; }
+.cv-volume { font-family: var(--text); font-size: 11pt; margin: 0; opacity: 0.85; }
+.cv-foot, .cv-back-foot { font-family: var(--text); font-size: 9.5pt; opacity: 0.8; }
+.cv-foot { position: absolute; left: 8mm; right: 8mm; bottom: 8mm; margin: 0; display: flex; justify-content: space-between; }
 .cv-list { list-style: none; margin: auto 0 0; padding: 0; max-width: 130mm; }
 .cv-list li { font-family: var(--display); font-size: 17pt; line-height: 1.3; display: flex; gap: 6mm; letter-spacing: var(--display-tracking); }
 .cv-list .c-no { font-family: var(--text); font-size: 8.5pt; opacity: 0.6; min-width: 8mm; padding-top: 0.5em; font-variant-numeric: lining-nums; }

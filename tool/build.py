@@ -132,14 +132,14 @@ def build(author: str, volume: int) -> Path:
         f'<li><span class="c-no">{i+1:02d}</span>{esc(e["title"].lower())}</li>'
         for i, e in enumerate(essays))
     cover = HEAD.format(title=f"cover · volume {roman}", cls="cover-doc", styles="../../tool/styles.css") + f"""
-<section class="cover front">
-  <div class="lockup">
-    <div><h1 class="lk-author" data-fit="156">{esc(author_name)}</h1></div>
-    <div><h2 class="lk-theme" data-fit="156">{esc(theme)}</h2></div>
-    <p class="lk-volume">essays, volume {roman}</p>
-  </div>
+<section class="cover front"><div class="fr">
+  <p class="cv-author">{esc(author_name)}</p>
+  <hr>
+  <h1 class="cv-title">{esc(theme)}</h1>
+  <hr>
+  <p class="cv-volume">essays, volume {roman}</p>
   <p class="cv-foot"><span>{PRINTED}</span><span>a printed book of essays</span></p>
-</section>
+</div></section>
 <section class="cover back">
   <ol class="cv-list">
 {back_list}
