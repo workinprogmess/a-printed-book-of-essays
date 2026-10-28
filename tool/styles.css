@@ -4,10 +4,10 @@
    that sit close (see fonts.md). */
 
 :root {
-  --ink: #1b1d1a;
-  --ink-soft: #4d544c;
-  --ink-faint: #7a817a;
-  --rule: #1b1d1a;
+  --ink: #000000;      /* pure black, so an inkjet uses only the black ink. tinted near-blacks get mixed from cmy and print soft */
+  --ink-soft: #4a4a4a;
+  --ink-faint: #7a7a7a;
+  --rule: #000000;
   --gutter: 32mm;   /* binding side. stab stitching eats ~15mm and the book won't open flat */
   --outer: 50mm;    /* the pencil margin */
   --cover: #2f4a3b; /* the cover colour. change it. */
